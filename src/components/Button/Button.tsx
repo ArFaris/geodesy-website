@@ -11,18 +11,23 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
   /** Варианты отображения */
   view: 'dark' | 'light' | 'strong';
+
+  className?: string;
+  disabled?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
   loading = false,
   children,
   view,
+  className,
+  disabled = false,
   ...props
 }) => {
   return (
     <button
-      className={cn(s.button, s[`button-${view}`], props.disabled && s.button_disabled, props.className)}
-      disabled={props.disabled || loading}
+      className={cn(s.button, s[`button-${view}`], disabled && s.button_disabled, className)}
+      disabled={disabled || loading}
       {...props}
     >
       {loading && <Loader size="s" className={s.button__loader} />}

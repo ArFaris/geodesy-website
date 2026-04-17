@@ -14,7 +14,7 @@ type DataTableProps = {
 
 const DataTable = React.memo(({ headers, rows, title, subtitle }: DataTableProps) => {
     return (
-        <>
+        <div className={s.main}>
             <TableUpIcon className={cn(s.decoration, s['decoration-up'])} />
 
             <div className={cn(s.page, s.wrapper)}>
@@ -56,7 +56,7 @@ const DataTable = React.memo(({ headers, rows, title, subtitle }: DataTableProps
             </div>
             
             <TableDownIcon className={cn(s.decoration, s['decoration-down'])}/>
-        </>
+        </div>
     );
 });
 

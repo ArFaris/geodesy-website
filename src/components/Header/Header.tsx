@@ -114,7 +114,7 @@ const Header: React.FC<HeaderProps> = ({image='/logo.svg', links=linksArr}: Head
                 })}>
                     {
                         links.map(link =>
-                        <div key={link.to} className={s.header__link}>
+                        <div key={link.to} className={s.borderEffect}>
                             <Text color='primary' view="p-16">
                             {link.description}
                         </Text></div>)

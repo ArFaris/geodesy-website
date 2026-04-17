@@ -3,6 +3,7 @@
 
 .table {
     border-collapse: collapse;
+    margin-inline: auto;
     white-space: pre-line;
     
     &__wrapper {
@@ -54,4 +55,8 @@
     .table th, .table td {
         padding: $padd-12 $padd-16;
     }
+}
+
+.main {
+    min-width: 100%;
 }

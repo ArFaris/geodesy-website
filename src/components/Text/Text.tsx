@@ -19,13 +19,15 @@ export type TextProps = {
     maxLines?: number;
 
     onClick?: () => void;
+
+    id?: string | undefined;
 };
 
-const Text: React.FC<TextProps> = ({ className, view = 'p-16', tag, weight, children, color = 'secondary', maxLines, onClick }: TextProps) => {
+const Text: React.FC<TextProps> = ({ id, className, view = 'p-16', tag, weight, children, color = 'secondary', maxLines, onClick }: TextProps) => {
     const Tag = tag || 'p';
 
     return (
-        <Tag className={cn(s.text, s[`text_view-${view}`], weight && s[`text_weight-${weight}`], color && s[`text_color-${color}`],
+        <Tag id={id} className={cn(s.text, s[`text_view-${view}`], weight && s[`text_weight-${weight}`], color && s[`text_color-${color}`],
             maxLines, className)} onClick={onClick}
             style={
                 { '--max-lines-count': maxLines } as React.CSSProperties

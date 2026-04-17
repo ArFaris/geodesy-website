@@ -25,6 +25,7 @@
       "components": ["components/*"],
       "App": ["App/*"],
       "config": ["config/*"],
+      "content": ["content/*"],
       "hooks": ["hooks/*"],
       "shared": ["shared/*"],
       "store": ["store/*"],

@@ -1,0 +1,17 @@
+@use '/src/styles/variables.scss' as *;
+@use '/src/styles/global.scss';
+
+.text {
+    max-width: 680px;
+    width: 100%;
+    padding-right: 80px;
+    white-space: pre-line;
+}
+
+.list {
+    padding-bottom: 14px;
+}
+
+.nums {
+    padding-bottom: $padd-16;
+}

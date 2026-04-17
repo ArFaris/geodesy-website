@@ -1,9 +1,11 @@
 @use '/src/styles/variables.scss' as *;
+@use '/src/styles/global.scss';
 
 .button {
     --l-button-text: #{$primary};
     --l-button-background: #{$secondary};
 
+    font-family: 'Playfair Display';
     background-color: var(--l-button-background);
     display: flex;
     gap: $button-gap;

@@ -14,25 +14,26 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
 
-    "baseUrl": "src",
     "paths": {
-      "lib": ["lib/*"],
-      "components": ["components/*"],
-      "App": ["App/*"],
-      "config": ["config/*"],
-      "content": ["content/*"],
-      "hooks": ["hooks/*"],
-      "shared": ["shared/*"],
-      "store": ["store/*"],
-      "styles": ["styles/*"],
-      "types": ["types/*"],
-      "utils": ["utils/*"],
-      "public/*": ["../public/*"]
+      "lib/*": ["./src/lib/*"],
+      "components/*": ["./src/components/*"],
+      "App/*": ["./src/App/*"],
+      "config/*": ["./src/config/*"],
+      "content/*": ["./src/content/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "shared/*": ["./src/shared/*"],
+      "store/*": ["./src/store/*"],
+      "styles/*": ["./src/styles/*"],
+      "types/*": ["./src/types/*"],
+      "utils/*": ["./src/utils/*"],
+      "public/*": ["./public/*"]
     }
   },
   "include": ["src"]

@@ -13,10 +13,12 @@
     "moduleDetection": "force",
     "noEmit": true,
 
+    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
   "include": ["vite.config.ts", "tsconfig.app.json"]
 }

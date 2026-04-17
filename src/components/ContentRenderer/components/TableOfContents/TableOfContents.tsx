@@ -4,6 +4,7 @@ import s from './TableOfContents.module.scss';
 import { type ContentBlock, type Header } from 'types/content';
 import Button from 'components/Button';
 import cn from 'classnames';
+import { useLanguage } from 'contexts/LanguageContext';
 
 type TableOfContentsProps = {
     headers: Header[];
@@ -76,9 +77,11 @@ const TableOfContents = ({ headers, blocks }: TableOfContentsProps) => {
 
   if (!headers || headers.length === 0) return null;
 
+  const { locale } = useLanguage();
+
   return (
     <div className={s.sidebar}>
-        <Text className={s.sidebar__title} view='p-16' weight='bold' color='primary'>СОДЕРЖАНИЕ</Text>
+        <Text className={s.sidebar__title} view='p-16' weight='bold' color='primary'>{locale === 'ru' ? 'СОДЕРЖАНИЕ' : 'TABLE OF CONTENTS'}</Text>
         <div className={s.headers}>
             {headers.map((header, idx) => renderHeaderItem(header, idx))}
         </div>

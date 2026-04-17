@@ -51,6 +51,12 @@
     display: none;
 }
 
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 @media(max-width: 1280px) {
     .header {
         &__main {
@@ -68,6 +74,10 @@
         &__links {
             display: none;
         }
+    }
+
+    .switch {
+        display: none;
     }
 
     .buttons {

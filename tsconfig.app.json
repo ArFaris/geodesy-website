@@ -23,10 +23,12 @@
 
     "paths": {
       "lib/*": ["./src/lib/*"],
+      "locales/*": ["./src/locales/*"],
       "components/*": ["./src/components/*"],
       "App/*": ["./src/App/*"],
       "config/*": ["./src/config/*"],
       "content/*": ["./src/content/*"],
+      "contexts/*": ["./src/contexts/*"],
       "hooks/*": ["./src/hooks/*"],
       "shared/*": ["./src/shared/*"],
       "store/*": ["./src/store/*"],

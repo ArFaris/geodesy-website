@@ -5,6 +5,7 @@ import DotIcon from './components/DotIcon';
 import Text from 'components/Text';
 import s from './ArticleWrapper.module.scss';
 import cn from 'classnames';
+import { useLanguage } from 'contexts/LanguageContext';
 
 type ArticleWrapperProps = {
     image: string;
@@ -18,6 +19,8 @@ type ArticleWrapperProps = {
 }
 
 const ArticleWrapper = ({image, category, title, author, createdAt, readingTime, views, likes}: ArticleWrapperProps) => {
+    const { locale, t } = useLanguage();
+
     return (
         <section className={s.wrapper}>
             <img className={cn(s.img, s.img__desctop)} src={image} alt='Иллюстрация к статье'/>
@@ -31,17 +34,17 @@ const ArticleWrapper = ({image, category, title, author, createdAt, readingTime,
                 <img className={cn(s.img, s.img__mobile)} src={image} alt='Иллюстрация к статье'/>
 
                 <div>
-                    <Text className={s.author}>{`Автор: ${author}`}</Text>
+                    <Text className={s.author}>{locale === 'ru' ? `Автор: ${author}` : `Author: ${author}`}</Text>
 
                     <div className={s.group}>
                         <Text color='gray'>{createdAt}</Text>
                         <DotIcon />
-                        <Text color='gray'>{`время чтения: ${readingTime} минут`}</Text>
+                        <Text color='gray'>{locale === 'ru' ? `время чтения: ${readingTime} минут` : `Reading time: ${readingTime} minutes`}</Text>
                     </div>
                 </div>
 
                 <div className={s.group}>
-                    <Text color='gray'>{`${views} просмотров`}</Text>
+                    <Text color='gray'>{locale === 'ru' ? `${views} просмотров` : `${views} views`}</Text>
                     <DotIcon />
                     <Text color='gray'>{`${likes}`}</Text>
                 </div>

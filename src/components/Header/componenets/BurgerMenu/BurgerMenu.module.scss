@@ -10,9 +10,11 @@
     z-index: 12000;
     text-align: center;
     padding: $padd-80 $padd-40;
-    backdrop-filter: blur(20px);
+    background-color: $primary;
     transition: $transition;
     animation: fadeIn 0.3s ease forwards;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 @keyframes slideIn {
@@ -89,6 +91,10 @@
     &:hover::after {
         width: 100%;
     }
+}
+
+.btn {
+    border: 1px solid $accent;
 }
 
 .icon {

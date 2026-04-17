@@ -8,61 +8,37 @@ import BurgerMenu from './componenets/BurgerMenu';
 import useBurgerMenu from 'hooks/useBurgerMenu';
 import MenuIcon from 'components/icons/MenuIcon';
 import cn from 'classnames';
+import LanguageSwitcher from 'components/LanguageSwitcher';
+import { useLanguage } from 'contexts/LanguageContext';
 
 export type Link = {
-    description: string,
+    key: string,
     to: string
 }
 
-const linksArr: Link[] = [
-    {
-        description: "Главная",
-        to: "/"
-    },
-    {
-        description: "Новости",
-        to: "/news"
-    },
-    {
-        description: "Обзоры",
-        to: "/reviews"
-    },
-    {
-        description: "Аналитика",
-        to: "/analytics"
-    },
-    {
-        description: "Статьи",
-        to: "/articles"
-    },
-    {
-        description: "Партнеры",
-        to: "/partners"
-    },
-    {
-        description: "Ссылки",
-        to: "/links"
-    },
-    {
-        description: "Магазин",
-        to: "/shop"
-    },
-    {
-        description: "О проекте",
-        to: "/about"
-    }
-]
+const navKeys: Link[] = [
+  { key: 'nav.home', to: '/' },
+  { key: 'nav.news', to: '/news' },
+  { key: 'nav.reviews', to: '/reviews' },
+  { key: 'nav.analytics', to: '/analytics' },
+  { key: 'nav.articles', to: '/articles' },
+  { key: 'nav.partners', to: '/partners' },
+  { key: 'nav.sources', to: '/links' },
+  { key: 'nav.shop', to: '/shop' },
+  { key: 'nav.about', to: '/about' }
+];
 
 type HeaderProps = {
     image?: string,
     links?: Link[]
 }
 
-const Header: React.FC<HeaderProps> = ({image='/logo.svg', links=linksArr}: HeaderProps) => {
+const Header: React.FC<HeaderProps> = ({image='/logo.svg', links=navKeys}: HeaderProps) => {
     const { isOpen, close, open } = useBurgerMenu();
     const [isSecondLevelVisible, setIsSecondLevelVisible] = useState(true);
     const lastScrollY = useRef(0);
     const frameId = useRef<number>(0);
+    const { t } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -98,12 +74,16 @@ const Header: React.FC<HeaderProps> = ({image='/logo.svg', links=linksArr}: Head
         <>
             <div className={s.header}>
                 <div className={s.header__main}>
-                    <SearchIcon />
+                    <div className={s.icons}>
+                        <SearchIcon />
+                        <span className={s.switch}><LanguageSwitcher /></span>
+                    </div>
+
                     <img src={image} alt='Логотип' className={s.logo}/>
 
                     <div className={s.buttons}>
-                        <Button view='strong'>Регистрация</Button>
-                        <Button view='strong'>Вход</Button>
+                        <Button view='strong'>{t('buttons.register')}</Button>
+                        <Button view='strong'>{t('buttons.login')}</Button>
                     </div>
 
                     <MenuIcon onClick={open} className={s.menu}/>
@@ -116,7 +96,7 @@ const Header: React.FC<HeaderProps> = ({image='/logo.svg', links=linksArr}: Head
                         links.map(link =>
                         <div key={link.to} className={s.borderEffect}>
                             <Text color='primary' view="p-16">
-                            {link.description}
+                            {t(link.key)}
                         </Text></div>)
                     }
                 </div>

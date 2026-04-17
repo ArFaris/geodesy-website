@@ -7,10 +7,12 @@ export default defineConfig({
   resolve: {
     alias: {
       'lib': path.resolve(__dirname, 'src/lib'),
+      'locales': path.resolve(__dirname, 'src/locales'),
       'components': path.resolve(__dirname, 'src/components'),
       'App': path.resolve(__dirname, 'src/App'),
       'config': path.resolve(__dirname, 'src/config'),
       'content': path.resolve(__dirname, 'src/content'),
+      'contexts': path.resolve(__dirname, 'src/contexts'),
       'hooks': path.resolve(__dirname, 'src/hooks'),
       'shared': path.resolve(__dirname, 'src/shared'),
       'store': path.resolve(__dirname, 'src/store'),

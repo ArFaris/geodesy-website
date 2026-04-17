@@ -31,12 +31,14 @@ const BlockRenderer = ({ block, id }: { block: ContentBlock, id: string | undefi
     
     case 'table':
       return (
-        <DataTable 
-          title={block.title} 
-          subtitle={block?.subtitle} 
-          rows={block.rows} 
-          headers={block.headers}
-        />
+        <div className={s.wrapper}>
+          <DataTable 
+            title={block.title} 
+            subtitle={block?.subtitle} 
+            rows={block.rows} 
+            headers={block.headers}
+          />
+        </div>
       );
     
     default:

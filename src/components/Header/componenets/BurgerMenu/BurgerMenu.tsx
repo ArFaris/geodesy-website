@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import CloseIcon from 'components/icons/CloseIcon';
 import Button from 'components/Button';
+import LanguageSwitcher from 'components/LanguageSwitcher';
+import { useLanguage } from 'contexts/LanguageContext';
 
 type BurgerMenuProps = {
     isOpen: boolean,
@@ -22,6 +24,8 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
     onLinkClick,
     className}: 
 BurgerMenuProps) => {
+    const { t } = useLanguage();
+
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
             if (e.key === 'Escape') onClose();
@@ -60,19 +64,19 @@ BurgerMenuProps) => {
     return createPortal(
         <div className={cn(s.menu, className, isOpen ? s.open : s.close)}>
             <CloseIcon className={s.icon} color="accent" onClick={onClose}/>
-
+            <LanguageSwitcher />
             <nav className={s.links}>
                 {
                     links.map(link =>
-                    <div key={link.to} onClick={() => { onClose(); onLinkClick(link)}} className={s.link}>
-                        <Text view="p-16" color='gray'>{link.description}</Text>
+                    <div key={link.to} onClick={() => { onClose(); onLinkClick(link)}} className={cn(s.link, s.borderEffect)}>
+                        <Text view="p-16" color='gray'>{t(link.key)}</Text>
                     </div>)
                 }
             </nav>
 
             <div className={cn(s.buttons, s.menu__buttons)}>
-                <Button view='strong'>Регистрация</Button>
-                <Button view='strong'>Вход</Button>
+                <Button view='dark' className={s.btn}>{t('buttons.register')}</Button>
+                <Button view='dark' className={s.btn}>{t('buttons.login')}</Button>
             </div>
         </div>,
         document.body

@@ -12,16 +12,20 @@ type DataTableProps = {
     subtitle?: string;
 }
 
-const DataTable: React.FC<DataTableProps> = ({headers, rows, title, subtitle}: DataTableProps) => {
+const DataTable = React.memo(({ headers, rows, title, subtitle }: DataTableProps) => {
     return (
         <>
             <TableUpIcon className={cn(s.decoration, s['decoration-up'])} />
 
             <div className={cn(s.page, s.wrapper)}>
                 <div className={s.title}>
-                    <Text className={s['title-first']} color='secondary' view='subtitle' weight='bold'>{title}</Text>
+                    <Text className={s['title-first']} view='subtitle' weight='bold'>
+                        {title}
+                    </Text>
                     {subtitle && 
-                        <Text className={s['title-second']} color='gray' view='p-16'>{subtitle}</Text>
+                        <Text className={s['title-second']} color='gray' view='p-16'>
+                            {subtitle}
+                        </Text>
                     }
                 </div>
 
@@ -31,17 +35,19 @@ const DataTable: React.FC<DataTableProps> = ({headers, rows, title, subtitle}: D
                             <tr>
                                 {headers.map((h, i) => 
                                     <th key={i}>
-                                        <Text color='secondary' view='p-16' weight='bold'>{h}</Text>
-                                    </th>)}
+                                        <Text view='p-16' weight='bold'>{h}</Text>
+                                    </th>
+                                )}
                             </tr>
                         </thead>
                         <tbody>
-                            {rows.map((row, i) =>
+                            {rows.map((row, i) => 
                                 <tr key={i}>
                                     {row.map((cell, j) => 
                                         <td key={j}>
                                             <Text color='gray' view='p-16'>{cell}</Text>
-                                        </td>)}
+                                        </td>
+                                    )}
                                 </tr>
                             )}
                         </tbody>
@@ -52,6 +58,6 @@ const DataTable: React.FC<DataTableProps> = ({headers, rows, title, subtitle}: D
             <TableDownIcon className={cn(s.decoration, s['decoration-down'])}/>
         </>
     );
-}
+});
 
 export default DataTable;

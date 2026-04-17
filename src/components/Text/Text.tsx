@@ -6,7 +6,7 @@ export type TextProps = {
     /** Дополнительный класс */
     className?: string;
     /** Стиль отображения */
-    view?: 'title' | 'subtitle' | 'button' | 'p-20' | 'p-18' | 'p-16' | 'p-14';
+    view?: 'title-big' | 'title-small' | 'subtitle' | 'button' | 'p-24' | 'p-16' | 'p-14';
     /** Html-тег */
     tag?:  'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'p' | 'span';
     /** Начертание шрифта */
@@ -21,7 +21,7 @@ export type TextProps = {
     onClick?: () => void;
 };
 
-const Text: React.FC<TextProps> = ({ className, view, tag, weight, children, color, maxLines, onClick }: TextProps) => {
+const Text: React.FC<TextProps> = ({ className, view = 'p-16', tag, weight, children, color = 'secondary', maxLines, onClick }: TextProps) => {
     const Tag = tag || 'p';
 
     return (

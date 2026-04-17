@@ -81,11 +81,21 @@
     }
 }
 
+@media(max-width: 1024px) {
+    .text {
+        &_view {
+            &-title-small {
+                font-size: 32px;
+            }
+        }
+    }
+}
+
 @media(max-width: 768px) {
     .text {
         &_view {
-            &-title {
-                font-size: 36px;
+            &-title-small {
+                font-size: 28px;
             }
 
             &-subtitle {

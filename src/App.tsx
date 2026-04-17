@@ -1,4 +1,6 @@
 import DataTable from 'components/Table';
+import Header from 'components/Header';
+import ArticleWrapper from 'components/ArticleWrapper';
 
 function App() {
   const headers = [
@@ -67,6 +69,8 @@ function App() {
 
   return (
     <>
+      <Header/>
+      <ArticleWrapper category={'Аналитика'} title={'СОСТОЯНИЕ И РАЗВИТИЕ ИСПОЛЬЗОВАНИЯ ГНСС-ПРИЁМНИКОВ В МИРЕ'} author={'В.С.Вдовин'} createdAt={'10 октября, 2025'} readingTime={25} views={999} likes={100} image='/png/frame.png'/>
       <DataTable headers={headers} rows={rows} subtitle={subtitle} title={title}/>
     </>
   )

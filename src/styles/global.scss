@@ -58,6 +58,11 @@ input {
     padding-inline: $padd-80;
 }
 
+.buttons {
+    display: flex;
+    gap: $padd-20;
+}
+
 @media(max-width: 1280px) {
   .page {
     padding-inline: $padd-40;

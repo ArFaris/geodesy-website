@@ -4,6 +4,20 @@ $secondary: #FAFAFA;
 $accent: #A1D1DA;
 $text-gray: #C9C9C9;
 
+$button-dark-hover: #13263E;
+$button-dark-active: #0E1824;
+
+$button-light-hover: #EFEFEF;
+$button-light-active: #DEDEDE;
+
+$button-strong-hover: rgba(161, 209, 218, 0.1);
+$button-strong-active: rgba(161, 209, 218, 0.2);
+
+$button-strong-border-hover: #A1D1DA;
+$button-strong-border-active: #678D94;
+
+$disabled: #D9D9D9;
+
 $section-name: #3A3A3A;
 
 $line: #BFC1CC;
@@ -30,7 +44,7 @@ $font-size-p24: 24px;
 $font-size-p16: 16px;
 $font-size-p14: 14px;
 
-$line-height-title: 48px;
+$line-height-title: 143%;
 $line-height-subtitle: 36px;
 $line-height-button: 18px;
 $line-height-p20: 24px;
@@ -40,7 +54,12 @@ $line-height-p14: 18px;
 /* Padding */
 $padd-80: 80px;
 $padd-40: 40px;
+$padd-32: 32px;
 $padd-20: 20px;
 $padd-24: 24px;
 $padd-16: 16px;
 $padd-12: 12px;
+
+/* Button */
+$button-height: 35px;
+$button-gap: 8px;
